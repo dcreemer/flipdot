@@ -1,12 +1,13 @@
 # Flipdot Simulator and Driver
 
-This program implements a Python Imaging Library driver and simulator for the
-[Flip-Dot XY5
+This program implements a [Pillow](https://github.com/python-pillow/Pillow) (Python
+Imaging Library friendly fork) driver and simulator for the [Flip-Dot XY5
 Display](https://flipdots.com/en/products-services/flip-dot-boards-xy5/) from
 [AlphaZeta](https://flipdots.com/en/home/).
 
 
 ## The Flip-Dot Display
+
 The XY5 Display can be thought of as a bitmaped screen. It consists of mechanical
 flipping "dots," laid out in an XY grid. The display is made up of a number of
 individual panels, where each panel is 7x28 pixels. Each panel has a controller, and
@@ -48,6 +49,29 @@ In another, run the demo application, specifying UDP as the communications mecha
 
 ```sh
 $ python demo.py udp
+```
+
+## Display
+
+```
+$ python sim.py
+
+ -----------------------------------------------------------
+|                                                           |
+|                                                           |
+|                                                           |
+|             * *     * *   * * *       * *                 |
+|             * *     * * * *   * *     * *                 |
+|               * * * *   * *   * *     * *                 |
+|                 * *     * *   * *     * *                 |
+|                 * *     * *   * *                         |
+|               * * * *     * * *       * *                 |
+|                                                           |
+|                                                           |
+|                                                           |
+|                                                           |
+|                                                           |
+ -----------------------------------------------------------
 ```
 
 ## Develop
