@@ -16,7 +16,9 @@ RS-485. On a single daisy-chain, each panel gets a unique numeric address (0, 1,
 The protocol to control a panel is not well-documented. Essentially each column of 7
 pixels (in a 7x28 board) is a controlled by a single byte, using the lower seven
 bits. The packet header includes panel address information, as well as other
-meta-data.
+meta-data. The protocol is outlined more in the [reference
+code](https://github.com/dcreemer/flipdot/blob/master/ref/XY5_arduino.txt) from
+Alfa-Zeta.
 
 ## Driver
 
@@ -53,3 +55,7 @@ $ python demo.py udp
 See the `demo.py` file for examples, but in general, anything that can be written to
 a Python Imaging Library 1-bit image can be sent to the display.
 
+### License
+
+BSD 3-Clause. Note that the included font "VeraBd.ttf" is from
+[here](https://www.gnome.org/fonts/) and subject to its own license.
