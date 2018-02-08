@@ -78,8 +78,8 @@ Here is a sample video:
 
 [![sample flip-dot video](https://img.youtube.com/vi/toKsp2REu5E/0.jpg)](https://www.youtube.com/watch?v=toKsp2REu5E) 
 
-It shows this software running a live Flip-Dot display, cycling through headlines
-derived from [Flipboard](https://about.flipboard.com/).
+(click the image to play it). It shows this software running a live Flip-Dot display,
+cycling through headlines derived from [Flipboard](https://about.flipboard.com/).
 
 ## Develop
 
