@@ -51,7 +51,7 @@ In another, run the demo application, specifying UDP as the communications mecha
 $ python demo.py udp
 ```
 
-## Display
+## Samples
 
 ```
 $ python sim.py
@@ -73,6 +73,13 @@ $ python sim.py
 |                                                           |
  -----------------------------------------------------------
 ```
+
+Here is a sample video:
+
+[![sample flip-dot video](https://img.youtube.com/vi/toKsp2REu5E/0.jpg)](https://www.youtube.com/watch?v=toKsp2REu5E) 
+
+It shows this software running a live Flip-Dot display, cycling through headlines
+derived from [Flipboard](https://about.flipboard.com/).
 
 ## Develop
 
