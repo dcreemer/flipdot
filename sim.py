@@ -34,13 +34,14 @@ class UDPHandler(SocketServer.BaseRequestHandler):
         if data[1] not in (0x81, 0x82, 0x83, 0x84, 0x85, 0x86):
             print "not right command"
             return []
+        ln = 0
         if data[1] in (0x81, 0x82):
-            l = 112
+            ln = 112
         elif data[1] in (0x83, 0x84):
-            l = 28
+            ln = 28
         elif data[1] in (0x85, 0x86):
-            l = 56
-        if len(data) != (l + 4):
+            ln = 56
+        if len(data) != (ln + 4):
             print "bad length", len(data)
             return []
         if data[-1] != 0x8F:

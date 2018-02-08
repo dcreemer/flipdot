@@ -1,8 +1,6 @@
 #! /usr/bin/env python
 
-import codecs
 import sys
-import random
 import time
 
 import animations
