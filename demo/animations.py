@@ -1,23 +1,29 @@
 #! /usr/bin/env python
 
 import random
+import os.path
 import time
 
 from PIL import Image, ImageDraw, ImageFont
 
-a1 = Image.open("images/a1.png")
-a2 = Image.open("images/a2.png")
+
+def rsrc(n):
+    return os.path.join(os.path.dirname(__file__), n)
+
+
+a1 = Image.open(rsrc("images/a1.png"))
+a2 = Image.open(rsrc("images/a2.png"))
 frames1 = {0: a1, 1: a1, 2: a2, 3: a2}
 
-b1 = Image.open("images/b1.png")
-b2 = Image.open("images/b2.png")
+b1 = Image.open(rsrc("images/b1.png"))
+b2 = Image.open(rsrc("images/b2.png"))
 frames2 = {0: b1, 1: b1, 2: b2, 3: b2}
 
-p1 = Image.open("images/p1.png")
-p2 = Image.open("images/p2.png")
+p1 = Image.open(rsrc("images/p1.png"))
+p2 = Image.open(rsrc("images/p2.png"))
 frames3 = {0: p1, 1: p1, 2: p2, 3: p2}
 
-BigFont = ImageFont.truetype("fonts/VeraBd.ttf", 15)
+BigFont = ImageFont.truetype(rsrc("fonts/VeraBd.ttf"), 15)
 SmallFont = None
 
 

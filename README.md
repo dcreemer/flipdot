@@ -36,19 +36,21 @@ computer, then try it out on a real display.
 Install the required libraries with pip:
 
 ```sh
-$ pip install -r requirements.txt
+$ make init
 ```
 
+(this just does `pip install -r requirements.txt`).
+       
 In one terminal window, run the display simulator:
 
 ```sh
-$ python sim.py
+$ make sim
 ```
 
 In another, run the demo application, specifying UDP as the communications mechanism:
 
 ```sh
-$ python demo.py udp
+$ make demo
 ```
 
 ## Samples
@@ -84,7 +86,8 @@ cycling through headlines derived from [Flipboard](https://about.flipboard.com/)
 ## Develop
 
 See the `demo.py` file for examples, but in general, anything that can be written to
-a Python Imaging Library 1-bit image can be sent to the display.
+a Python Imaging Library 1-bit image can be sent to the display. The code should be
+fine on Python 2.7.X and Python 3.6.X.
 
 ### License
 

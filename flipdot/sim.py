@@ -3,10 +3,17 @@
 # python flipdot display simulator
 
 
+from __future__ import print_function
+import sys
+
 import curses
-import SocketServer
 import threading
 import time
+
+if sys.version_info.major == 2:
+    import SocketServer as socketserver
+else:
+    import socketserver
 
 from PIL import Image
 
@@ -18,7 +25,7 @@ sim = None
 stdscr = None
 
 
-class UDPHandler(SocketServer.BaseRequestHandler):
+class UDPHandler(socketserver.BaseRequestHandler):
 
     def handle(self):
         data = self.request[0]
@@ -27,12 +34,15 @@ class UDPHandler(SocketServer.BaseRequestHandler):
             self.update_display(data)
 
     def validate(self, raw):
-        data = [ord(x) for x in raw]
+        if sys.version_info.major == 2:
+            data = [ord(x) for x in raw]
+        else:
+            data = raw
         if data[0] != 0x80:
-            print "no start"
+            print("no start")
             return []
         if data[1] not in (0x81, 0x82, 0x83, 0x84, 0x85, 0x86):
-            print "not right command"
+            print("not right command")
             return []
         ln = 0
         if data[1] in (0x81, 0x82):
@@ -42,10 +52,10 @@ class UDPHandler(SocketServer.BaseRequestHandler):
         elif data[1] in (0x85, 0x86):
             ln = 56
         if len(data) != (ln + 4):
-            print "bad length", len(data)
+            print("bad length", len(data))
             return []
         if data[-1] != 0x8F:
-            print "no end"
+            print("no end")
             return []
         return data
 
@@ -54,11 +64,11 @@ class UDPHandler(SocketServer.BaseRequestHandler):
         # if data[1] in (0x82, 0x83, 0x85):
         #     sim.refresh(address)
         body = data[3:-1]
-        # print "SIM", address, len(body), list(body)
+        # print("SIM", address, len(body), list(body))
         sim.update(address, body)
 
 
-class ThreadedUDPServer(SocketServer.ThreadingMixIn, SocketServer.UDPServer):
+class ThreadedUDPServer(socketserver.ThreadingMixIn, socketserver.UDPServer):
     pass
 
 
@@ -116,7 +126,7 @@ class DisplaySim(threading.Thread):
         (xs, ys), (w, h) = self.d.panels[address]
         n = Image.new("RGB", (w, h))
         if h is not 7:
-            print "H is not 7!!!"
+            print("H is not 7!!!")
         for x in range(w):
             # get the next byte
             b = data[x]

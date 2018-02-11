@@ -3,9 +3,8 @@
 import sys
 import time
 
-import animations
-import client
-import display
+from demo import animations
+from flipdot import client, display
 
 
 d = display.Display(28, 14,

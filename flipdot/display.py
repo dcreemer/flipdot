@@ -2,6 +2,7 @@
 #
 # display.py
 
+from __future__ import print_function
 from PIL import Image, ImageDraw
 
 
@@ -76,7 +77,7 @@ class Display(object):
         result = bytearray()
         for x in range(xs, xs + w):
             if h is not 7:
-                print "H is not 7!!!!"
+                print("H is not 7!!!!")
             b = 0
             for y in range(h-1, -1, -1):
                 p = self.px_to_bit(px[x, ys + y])
