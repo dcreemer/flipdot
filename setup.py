@@ -17,5 +17,6 @@ setup(
     author_email='dcreemer@zachary.com',
     url='https://github.com/dcreemer/flipdot',
     license=license,
-    packages=find_packages(exclude=('tests', 'docs'))
+    packages=find_packages(exclude=('tests', 'docs')),
+    include_package_data=True
 )
