@@ -1,0 +1,3 @@
+include demo/fonts/*.ttf
+include demo/images/*.png
+
